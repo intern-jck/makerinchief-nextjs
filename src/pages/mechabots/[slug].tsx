@@ -1,23 +1,24 @@
 import { Carousel, InfoPanel } from '@/common/components/';
 import { getJsonDataFromUrl } from '@/modules/json';
-import type { ProjectType } from '@/common/types/';
-import styles from './WorkSlug.module.scss';
+import type { MechabotType } from '@/common/types/';
+import styles from './MechabotSlug.module.scss';
 
 type Props = {
-  project: ProjectType,
+  mechabot: MechabotType,
 };
 
-export default function WorkProjectComponent({ project }: Props) {
+export default function MechaBot({ mechabot }: Props) {
+  console.log(mechabot)
 
   return (
     <>
       <div className='page-content'>
-        <div className={styles.projectContent}>
-          <div className={styles.workProjectCarousel}>
-            <Carousel slides={project.photos} />
+        <div className={styles.mechabotContent}>
+          <div className={styles.mechabotCarousel}>
+            <Carousel slides={mechabot.photos} />
           </div>
-          <div className={styles.workProjectInfoPanel}>
-            <InfoPanel project={project} />
+          <div className={styles.mechabotInfoPanel}>
+            <InfoPanel mechabot={mechabot} />
           </div>
         </div>
       </div>
@@ -33,28 +34,28 @@ type ParamsType = {
 
 export async function getStaticProps({ params }: ParamsType) {
   
-  const _projects = await getJsonDataFromUrl(process.env.GITHUB_WORK_JSON_URL!);
+  const _mechabots = await getJsonDataFromUrl(process.env.GITHUB_MECHABOTS_JSON_URL!);
 
-  const project = _projects.filter((project: ProjectType) => {
-    if (project.link === params.slug) {
-      return project;
+  const mechabot = _mechabots.filter((mechabot: MechabotType) => {
+    if (mechabot.link === params.slug) {
+      return mechabot;
     };
   })[0];
 
   return {
-    props: { project }
+    props: { mechabot }
   }
 };
 
 export async function getStaticPaths() {
 
-  const _projects = await getJsonDataFromUrl(process.env.GITHUB_WORK_JSON_URL!);
+  const _mechabots = await getJsonDataFromUrl(process.env.GITHUB_MECHABOTS_JSON_URL!);
 
   return {
-    paths: _projects.map((project: ProjectType) => {
+    paths: _mechabots.map((mechabot: MechabotType) => {
       return {
         params: {
-          slug: project.link,
+          slug: mechabot.link,
         },
       }
     }),

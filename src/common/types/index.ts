@@ -1,5 +1,5 @@
-import { ProjectType } from './ProjectType';
+import { MechabotType } from './MechabotType';
 
 export type {
-  ProjectType,
+  MechabotType,
 }

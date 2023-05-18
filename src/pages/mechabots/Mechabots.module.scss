@@ -1,4 +1,4 @@
-.workContent {
+.mechabotsContent {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -6,19 +6,18 @@
   align-content: flex-start;
   gap: 2rem;
 
-  .workCard > * {
+  .mechaCard > * {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
 
-  .workCard {
+  .mechaCard {
     border: $border-stock;
     border-radius: $border-radius-large;
     width: 20rem;
     height: 25rem;
-
     display: grid;
     grid-template-rows: 15% 60% 25%;
 
@@ -54,7 +53,7 @@
 
   }
 
-  .workCard:hover {
+  .mechaCard:hover {
     scale: 105%;
     cursor: pointer;
   }

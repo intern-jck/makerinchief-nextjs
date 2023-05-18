@@ -1,6 +1,6 @@
 type TechType = Array<string>;
 
-type ProjectType = {
+type MechabotType = {
   name: string,
   client: string,
   client_url: string,
@@ -12,4 +12,4 @@ type ProjectType = {
   photos: Array<string>,
 };
 
-export type { ProjectType };
+export type { MechabotType };
