@@ -26,15 +26,15 @@ export default function NavBarComponent() {
 
       <ul id={styles.navMenu} className={styles.navMenu}>
         <li>
+          <Link href='/' onClick={closeMenu}>
+            Home
+          </Link>
+        </li>
+        <li>
           <Link href='/mechabots' onClick={closeMenu}>
             Mecha-Bots
           </Link>
         </li>
-        {/* <li>
-          <Link href='/kits' onClick={closeMenu}>
-            Kits
-          </Link>
-        </li> */}
         <li>
           <Link href='/about' onClick={closeMenu}>
             About

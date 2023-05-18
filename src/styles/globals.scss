@@ -46,13 +46,20 @@ h3 {
   flex-direction: column;
 }
 
+.page-header {
+  // border: $border-stock;
+  font-size: $font-size-xxxlarge;
+  text-align: center;
+  font-weight: bold;
+}
+
 .home-image {
-  border: $border-stock;
+  // border: $border-stock;
+  // margin-top: 20vh;
+  // width: 48rem;
   position: relative;
   margin: auto;
-  margin-top: 20vh;
-  width: 48rem;
-  height: 32rem;
+  height: 30rem;
 
   img {
     padding: 1rem;
