@@ -1,5 +1,5 @@
 import { Carousel, InfoPanel } from '@/common/components/';
-// import { getJsonDataFromUrl } from '@/modules/json';
+
 import { KitType } from '@/common/types';
 import styles from './KitSlug.module.scss';
 
@@ -7,13 +7,13 @@ type Props = {
   kit: KitType,
 };
 
-export default function WorkProjectComponent({ kit }: Props) {
+export default function Kit({ kit }: Props) {
   return (
     <>
       <div className='page-content'>
         <div className={styles.projectContent}>
           <div className={styles.workProjectCarousel}>
-            <Carousel slides={project.photos} />
+            <Carousel slides={kit.photos} />
           </div>
           <div className={styles.workProjectInfoPanel}>
             <InfoPanel project={kit} />
