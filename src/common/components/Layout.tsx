@@ -9,8 +9,8 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>JCK Site</title>
-        <meta name="description" content="Justin Claude Kirk portfolio" />
+        <title>Makerinchief Site</title>
+        <meta name="description" content="Makerinchief" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

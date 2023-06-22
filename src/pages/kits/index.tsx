@@ -1,44 +1,45 @@
 import Image from 'next/image'
 import Link from 'next/link';
+import { Card } from '@/common/components';
 
-import { getJsonDataFromUrl } from '@/modules/json';
-import styles from './Store.module.scss';
+import { KitType } from '@/common/types';
+// import { getJsonDataFromUrl } from '@/modules/json';
+
+import styles from './Kits.module.scss';
+
 
 // Url for products info
-// const GITHUB_PHOTOS_JSON_URL = process.env.GITHUB_PHOTOS_JSON_URL;
+const GITHUB_KITS_JSON_URL = process.env.GITHUB_KITS_JSON_URL;
 
 type Props = {
-  kits: Array<string>,
+  kits: KitType[],
 };
 
-export default function Store({ photos }: Props) {
+export default function Kits({ kits }: Props) {
+  console.log(kits)
   return (
     <>
+      <div className='page-header'>
+        <h1>Kits</h1>
 
-      {/* <div className='page-header'>
-        <h1>PHOTOGRAPHY</h1>
-      </div> */}
-
+      </div>
       <div className='page-content'>
-        <div className={styles.photosContent}>
+        <div className={styles.kitsContent}>
           {
-            photos.map((photo, i) => {
+            kits ?
+            kits.map((kit, i) => {
               return (
-                <Link href={'#'} key={i} className={styles.photoContainer}>
-                  <Image
-                    src={photo}
-                    alt="Card image not found"
-                    width={0}
-                    height={0}
-                    // fill
-                    sizes="(max-width: 768px) 100vw,
-                      (max-width: 1200px) 50vw,
-                      33vw"
-                    style={{ width: '100%', height: '100%' }} 
-                  />
-                </Link>
+                <Card
+                  key={i}
+                  className={styles.kitCard}
+                  cardTitle={kit.name}
+                  cardImage={kit.photos[0]}
+                  cardText={kit.short}
+                  cardLink={`/kits/${kit.slug}`}
+                />
               )
             })
+            : <></>
           }
         </div>
       </div>
@@ -47,8 +48,13 @@ export default function Store({ photos }: Props) {
 };
 
 export async function getStaticProps() {
-  const photos = await getJsonDataFromUrl(GITHUB_PHOTOS_JSON_URL!);
+  // const kits = await getJsonDataFromUrl(GITHUB_KITS_JSON_URL!);
+
+  // const response = await fetch('https://raw.githubusercontent.com/intern-jck/jsons/main/kitsData2.json');
+  const response = await fetch(GITHUB_KITS_JSON_URL!);
+  const kits = await response.json();
+
   return {
-    props: { photos }
+    props: { kits }
   }
 };

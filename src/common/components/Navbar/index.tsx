@@ -31,8 +31,8 @@ export default function NavBarComponent() {
           </Link>
         </li>
         <li>
-          <Link href='/mechabots' onClick={closeMenu}>
-            Mecha-Bots
+          <Link href='/kits' onClick={closeMenu}>
+            Kits
           </Link>
         </li>
         <li>
