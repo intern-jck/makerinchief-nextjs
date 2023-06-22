@@ -1,4 +1,4 @@
-import type { TechType, RepoType } from '@/common/types';
+import type { PhotoType, TechType, RepoType } from '@/common/types';
 
 type KitType = {
   category: string,
@@ -6,7 +6,7 @@ type KitType = {
   name: string,
   short: string,
   info: string,
-  photos: Array<string>,
+  photos: Array<PhotoType>,
   tech: Array<TechType>,
   repos: Array<RepoType>,
 };

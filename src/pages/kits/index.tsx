@@ -49,6 +49,7 @@ export async function getStaticProps() {
   // const response = await fetch('https://raw.githubusercontent.com/intern-jck/jsons/main/kitsData2.json');
   const response = await fetch(GITHUB_KITS_JSON_URL!);
   const data = await response.json();
+  
   // console.log(data.makerinchief)
   const kits = data.makerinchief.map((item) => ({
     slug: item.slug,

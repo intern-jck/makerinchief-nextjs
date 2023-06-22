@@ -1,0 +1,13 @@
+.projectContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.workProjectCarousel,
+.workProjectInfoPanel {
+  width: 45vw;
+}
+
+// add media quieries

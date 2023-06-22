@@ -1,22 +1,24 @@
 import { Carousel, InfoPanel } from '@/common/components/';
 
-import { KitType } from '@/common/types';
+import { KitType, PhotoType } from '@/common/types';
 import styles from './KitSlug.module.scss';
 
 type Props = {
   kit: KitType,
+  photos: string[],
 };
 
-export default function Kit({ kit }: Props) {
+export default function Kit({ kit, photos }: Props) {
+  console.log(photos)
   return (
     <>
       <div className='page-content'>
         <div className={styles.projectContent}>
           <div className={styles.workProjectCarousel}>
-            <Carousel slides={kit.photos} />
+            <Carousel slides={photos} />
           </div>
           <div className={styles.workProjectInfoPanel}>
-            <InfoPanel project={kit} />
+            <InfoPanel kit={kit} />
           </div>
         </div>
       </div>
@@ -32,28 +34,34 @@ type ParamsType = {
 
 export async function getStaticProps({ params }: ParamsType) {
   
-  const _kits = await getJsonDataFromUrl(process.env.GITHUB_KITS_JSON_URL!);
+  const response = await fetch(process.env.GITHUB_KITS_JSON_URL!);
+  const data = await response.json();
 
-  const kit = _kits.filter((kit: KitType) => {
-    if (kit.link === params.slug) {
+  const kit = data.makerinchief.filter((kit: KitType) => {
+    if (kit.slug === params.slug) {
       return kit;
     };
   })[0];
 
+  const photos = kit ? kit.photos.map((photo: string) => (photo.url)) : [];
+  
+
   return {
-    props: { kit }
+    props: { kit, photos }
   }
 };
 
 export async function getStaticPaths() {
 
-  const _kits = await getJsonDataFromUrl(process.env.GITHUB_KITS_JSON_URL!);
+  const response = await fetch(process.env.GITHUB_KITS_JSON_URL!);
+  const data = await response.json();
+
 
   return {
-    paths: _kits.map((kit: KitType) => {
+    paths: data.makerinchief.map((kit: KitType) => {
       return {
         params: {
-          slug: kit.link,
+          slug: kit.slug,
         },
       }
     }),

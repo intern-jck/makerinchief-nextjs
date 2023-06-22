@@ -10,12 +10,14 @@
 }
 
 .carouselImage {
+  border: $border-stock;
   // border: $border-stock;
   height: 98%;
   width: 98%;
   // position: relative;
 
   img {
+  border: $border-stock;
     padding: $padding-thick;
     object-fit: contain;
     height: 98%;
