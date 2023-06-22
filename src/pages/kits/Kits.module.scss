@@ -26,6 +26,9 @@
       grid-row: 1;
       font-size: $font-size-xlarge;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     a {
@@ -49,7 +52,10 @@
       margin: 0;
       grid-row: 3;
       font-size: $font-size-large;
-      padding: $padding-thin;
+      padding: $padding-stock;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
