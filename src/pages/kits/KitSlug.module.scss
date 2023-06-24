@@ -1,14 +1,13 @@
-.projectContent {
+.kitContent {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
 
-.workProjectCarousel,
-.workProjectInfoPanel {
+.kitCarousel,
+.kitInfoPanel {
   width: 45vw;
-  height: 50vw;
 }
 
 // add media quieries
