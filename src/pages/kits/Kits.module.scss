@@ -4,19 +4,12 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
-  gap: 1rem;
-
-  // .kitCard > * {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   text-align: center;
-  // }
+  gap: 4rem;
 
   .kitCard {
     border: $border-stock;
-    width: 20rem;
-    height: 20rem;
+    width: 30rem;
+    height: 30rem;
     text-align: center;
 
     display: grid;
@@ -24,7 +17,7 @@
 
     span {
       grid-row: 1;
-      font-size: $font-size-xlarge;
+      font-size: $font-size-xxxlarge;
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -51,7 +44,7 @@
     p {
       margin: 0;
       grid-row: 3;
-      font-size: $font-size-large;
+      font-size: $font-size-xxlarge;
       padding: $padding-stock;
       display: flex;
       align-items: center;

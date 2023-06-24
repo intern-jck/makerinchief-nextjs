@@ -1,23 +1,54 @@
-import Link from 'next/link';
 import type { KitType } from '@/common/types';
-import styles from './InfoPanel.module.scss';
+// import Link from 'next/link';
+// import styles from './InfoPanel.module.scss';
+
+import { FaYoutube, FaGithub } from 'react-icons/fa';
+
+const repoIcons = {
+  'youtube' : <FaYoutube />,
+  'github': <FaGithub />,
+};
+
 
 type Props = {
+  className: string,
   kit: KitType,
 }
 
-export default function InfoPanel({ kit }: Props) {
+export default function InfoPanel({ className, kit }: Props) {
   
   return (
-    <div className={styles.infoPanel}>
-      <div className={styles.infoRow}>
+    <div className={className}>
+      <div className={'info-row'}>
         <h3>NAME: <span>{kit.name}</span></h3>
       </div>
-      <div className={styles.infoRow}>
-        {/* <h3>TECH: <span>{mechabot.tech.map((tech, i) => (<Link key={i} href={tech[1]}>{tech[0]}</Link>))}</span></h3> */}
+      <div className={'info-row'}>
+        <h3>TECH:  
+          <span className={'tech-list'}>
+          {
+            kit.tech.map((tech, i) => (
+              <a key={i} className={'tech'} href={tech.url} target={'_blank'}>
+                {tech.name}
+              </a>))
+          }
+          </span>
+        </h3>
       </div>
-      <div className={styles.infoRow}>
+      <div className={'info-row'}>
         <h3>INFO: <span>{kit.info}</span></h3>
+      </div>
+      <div className={'info-row'}>
+        <h3>REPOS:  
+          <span className={'repo-list'}>
+          {
+            kit.repos.map((repo, i) => (
+              <a key={i} className={'repo'} href={repo.url} target={'_blank'}>
+                {/* {repo.name} */}
+                {repoIcons[repo.key]}
+              </a>))
+          }
+          </span>
+        </h3>
       </div>
     </div>
   );

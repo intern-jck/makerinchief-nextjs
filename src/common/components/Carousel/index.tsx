@@ -4,10 +4,12 @@ import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import styles from './Carousel.module.scss';
 
 type CarouselProps = {
+  className: string,
   slides: Array<string>
 };
 
-export default function Carousel({ slides }: CarouselProps) {
+export default function Carousel({ className, slides }: CarouselProps) {
+
   const [slideIndex, setSlideIndex] = useState(0);
   const [length, setLength] = useState(slides.length);
 
@@ -29,8 +31,8 @@ export default function Carousel({ slides }: CarouselProps) {
 
   return (
     <>
-      <div className={styles.carousel}>
-        <div className={styles.carouselImage}>
+      <div className={className}>
+        <div className={'carousel-image'}>
           <Image
             src={slides[slideIndex]}
             alt="Home page photo not found"
@@ -39,7 +41,7 @@ export default function Carousel({ slides }: CarouselProps) {
             sizes="300px"
           />
         </div>
-        <div className={styles.carouselControls}>
+        <div className={'carousel-controls'}>
           <button
             onClick={prevSlide}>
             <FaChevronLeft />

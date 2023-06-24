@@ -17,7 +17,6 @@ export default function Kits({ kits }: Props) {
     <>
       <div className='page-header'>
         <h1>Kits</h1>
-
       </div>
       <div className='page-content'>
         <div className={styles.kitsContent}>
